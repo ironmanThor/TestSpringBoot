@@ -1,0 +1,35 @@
+server:
+  port: 8080
+  error:
+    include-stacktrace:
+logging:
+  level:
+    com.dapeng.cloud.service: DEBUG
+    io.swagger.models.parameters: off
+spring:
+  kafka:
+    bootstrap-servers: szzii.com:9092
+    consumer:
+      bootstrap-servers: szzii.com:9092
+      group-id: 0
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      producer:
+        key-serializer: org.apache.kafka.common.serialization.StringSerializer
+        value-serializer: org.apache.kafka.common.serialization.StringSerializer
+        batch-size: 65536
+        buffer-memory: 524288
+  redis:
+    # Redis开关/默认关闭
+    enabled: true
+    database: 0
+    host: ${REDIS_HOST:localhost}
+    port: 6379
+    password: ${REDIS_PASSWORD:}
+dapeng:
+  teaching:
+    host: ${TEACHING_REQUEST_URL:http://kong.kube.lan}
+    course-api: ${COURSE_API:${dapeng.teaching.host}/course-api}
+    user-api: ${USER_API:${dapeng.teaching.host}/user-service}
+
+

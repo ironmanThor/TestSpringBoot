@@ -1,0 +1,54 @@
+info:
+  tags:
+    environment: ${spring.profiles.active}
+management:
+  server:
+    port: 8081
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+  metrics:
+    tags:
+      application: ${spring.application.name}
+# feign\u914D\u7F6E
+feign:
+  hystrix:
+    enabled: true
+# hystrix\u914D\u7F6E
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: SEMAPHORE
+          thread:
+            # \u8D85\u65F6\u9650\u5236
+            timeoutInMilliseconds: 70000
+spring:
+  kafka:
+    bootstrap-servers: szzii.com:9092
+    consumer:
+      bootstrap-servers: szzii.com:9092
+      group-id: 0
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      producer:
+        key-serializer: org.apache.kafka.common.serialization.StringSerializer
+        value-serializer: org.apache.kafka.common.serialization.StringSerializer
+        batch-size: 65536
+        buffer-memory: 524288
+  jackson:
+    serialization:
+      write-dates-as-timestamps: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: admin
+
+
+

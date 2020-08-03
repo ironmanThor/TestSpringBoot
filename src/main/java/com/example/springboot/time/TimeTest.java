@@ -38,7 +38,7 @@ public class TimeTest {
     Date date1 = DateUtil.parse(dateStr);
     System.out.println(dateStr);
 
-    String dateStr2 = "2020-07-30 18:00:00";
+    String dateStr2 = "2020-07-31 18:30:00";
     Date date2 = DateUtil.parse(dateStr2);
     long betweenDay = DateUtil.between(date1, date2, DateUnit.MINUTE);
     while (betweenDay!=0){

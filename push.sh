@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-mvn clean package -Dmaven.test.skip=true
+mvn package
 echo '项目打包完成'
 docker login --username=还好遗憾念 registry.cn-hangzhou.aliyuncs.com
 echo '登录密码'

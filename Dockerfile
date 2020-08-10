@@ -8,7 +8,7 @@ VOLUME /tmp
 
 # 拷贝文件到容器，handcuffs-reg-0.0.1-SNAPSHOT.jar这里是maven打包后的名字
 
-ADD springboot-0.0.1-SNAPSHOT.jar app.jar
+ADD target/*.jar app.jar
 
 ENV JAVA_OPTS=""
 ENV LANG C.UTF-8

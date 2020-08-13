@@ -1,3 +1,4 @@
+/*
 package com.example.springboot.controller;
 
 import com.example.springboot.kafka.KafkaProducerLGQ;
@@ -9,12 +10,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+*/
 /**
  * @progrm:TestSpringBoot
  * @Description:
  * @Author: leichengxu
  * @Date:2020-07-22 15:19
- */
+ *//*
+
 @RestController
 @RequestMapping(value = "/kakfa")
 public class KafkaController {
@@ -32,3 +35,4 @@ public class KafkaController {
   }
 
 }
+*/

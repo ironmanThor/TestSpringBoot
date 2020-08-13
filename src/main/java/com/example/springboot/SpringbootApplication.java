@@ -1,5 +1,7 @@
 package com.example.springboot;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
@@ -15,6 +17,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableHystrix
 @EnableFeignClients
 @EnableSwagger2
+@MapperScan("com.example.springboot.mapper")
 //@EnableKafka
 public class SpringbootApplication {
 

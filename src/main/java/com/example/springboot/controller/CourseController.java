@@ -1,6 +1,7 @@
 package com.example.springboot.controller;
 
 import com.example.springboot.aop.Log;
+import com.example.springboot.aop.Role;
 import com.example.springboot.client.CourseClient;
 import com.example.springboot.client.CourseClientDto;
 import com.example.springboot.client.CourseClientQuery;
@@ -8,6 +9,7 @@ import com.example.springboot.client.CourseClientQuery.CourseClientQueryMapper;
 import com.example.springboot.dto.CourseDto;
 import com.example.springboot.dto.CourseDto.CourseDtoMapper;
 import com.example.springboot.dto.CourseQuery;
+import com.example.springboot.mapper.rolemapper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import java.util.List;
@@ -30,6 +32,9 @@ public class CourseController {
   @Autowired
   private   CourseClient courseClient;
 
+  @Autowired
+  private com.example.springboot.mapper.rolemapper rolemapper;
+
   @ApiOperation("查询课程管理列表")
   @Log(operationType = "cesada")
   @GetMapping()
@@ -39,6 +44,12 @@ public class CourseController {
         .getCourseList(courseClientQuery);
     return ResponseEntity.status(responseEntity.getStatusCode())
         .headers(responseEntity.getHeaders()).body(CourseDtoMapper.MAPPER.from(responseEntity.getBody()));
+  }
+
+  @ApiOperation("查询角色")
+  @GetMapping("/role")
+  public List<Role> roles(){
+      return  rolemapper.getroles();
   }
 
 

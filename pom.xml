@@ -132,6 +132,11 @@
     </dependency>
 
     <dependency>
+      <groupId>com.baomidou</groupId>
+      <artifactId>mybatis-plus-boot-starter</artifactId>
+      <version>3.0.1</version>
+    </dependency>
+    <dependency>
       <!-- Required to use PATCH -->
       <groupId>io.github.openfeign</groupId>
       <artifactId>feign-httpclient</artifactId>

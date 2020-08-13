@@ -30,6 +30,7 @@ hystrix:
             timeoutInMilliseconds: 70000
 
 spring:
+  #连接数据库配置 数据库用户名 数据库密码 数据库地址/数据库名
   datasource:
     username: root
     password: 123456
@@ -57,8 +58,12 @@ spring:
     username: admin
     password: admin
 
-
+#mappersql查询地址  对应实体类
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.example.springboot.aop
 
+#关闭自动转换驼峰命名规则
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false

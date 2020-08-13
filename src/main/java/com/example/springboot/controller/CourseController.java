@@ -1,7 +1,11 @@
 package com.example.springboot.controller;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.springboot.aop.Log;
 import com.example.springboot.aop.Role;
+import com.example.springboot.aop.Rule;
 import com.example.springboot.client.CourseClient;
 import com.example.springboot.client.CourseClientDto;
 import com.example.springboot.client.CourseClientQuery;
@@ -16,6 +20,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,6 +40,9 @@ public class CourseController {
   @Autowired
   private com.example.springboot.mapper.rolemapper rolemapper;
 
+  @Autowired
+  private com.example.springboot.mapper.rulemapper rulemapper;
+
   @ApiOperation("查询课程管理列表")
   @Log(operationType = "cesada")
   @GetMapping()
@@ -52,6 +60,12 @@ public class CourseController {
       return  rolemapper.getroles();
   }
 
-
+  @ApiOperation("查询权限")
+  @GetMapping("/rule/{id}")
+  public Rule rules(@PathVariable("id") String id){
+    QueryWrapper<Rule> queryWrapper=new QueryWrapper();
+    queryWrapper.lambda().eq(Rule::getRuleId,id);
+    return  rulemapper.selectOne(queryWrapper);
+  }
 
 }

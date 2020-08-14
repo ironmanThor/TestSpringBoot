@@ -3,6 +3,7 @@ package com.example.springboot.controller;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.example.springboot.aop.Log;
 import com.example.springboot.aop.Role;
 import com.example.springboot.aop.Rule;
@@ -65,6 +66,7 @@ public class CourseController {
   public Rule rules(@PathVariable("id") String id){
     QueryWrapper<Rule> queryWrapper=new QueryWrapper();
     queryWrapper.lambda().eq(Rule::getRuleId,id);
+    LambdaQueryWrapper lambdaQueryWrapper= Wrappers.lambdaQuery();
     return  rulemapper.selectOne(queryWrapper);
   }
 

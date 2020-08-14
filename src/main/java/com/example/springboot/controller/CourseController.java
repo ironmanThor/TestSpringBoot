@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.example.springboot.EnumZidingyi.CourseStatus;
+import com.example.springboot.EnumZidingyi.EnumTest;
 import com.example.springboot.aop.Log;
 import com.example.springboot.aop.Role;
 import com.example.springboot.aop.Rule;
@@ -14,15 +16,19 @@ import com.example.springboot.client.CourseClientQuery.CourseClientQueryMapper;
 import com.example.springboot.dto.CourseDto;
 import com.example.springboot.dto.CourseDto.CourseDtoMapper;
 import com.example.springboot.dto.CourseQuery;
+import com.example.springboot.dto.CourseVo;
 import com.example.springboot.mapper.rolemapper;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -57,11 +63,12 @@ public class CourseController {
 
   @ApiOperation("查询角色")
   @GetMapping("/role")
-  public List<Role> roles(){
+  public List<Role> roles(@Validated CourseVo courseVo){
       return  rolemapper.getroles();
   }
 
   @ApiOperation("查询权限")
+  @ApiImplicitParam(value = "角色id",name = "id")
   @GetMapping("/rule/{id}")
   public Rule rules(@PathVariable("id") String id){
     QueryWrapper<Rule> queryWrapper=new QueryWrapper();

@@ -1,5 +1,6 @@
 package com.example.springboot.client;
 
+import com.example.springboot.client.UserClient.UserClientHystrix;
 import com.google.common.collect.Lists;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @Author: leichengxu
  * @Date:2020-07-10 14:04
  */
-@FeignClient(name = "userClient",url = "${dapeng.teaching.user-api}")
+@FeignClient(name = "userClient",url = "${dapeng.operation.requestUrl}/user-service",fallback = UserClientHystrix.class)
 @Component
 public interface UserClient {
   /**

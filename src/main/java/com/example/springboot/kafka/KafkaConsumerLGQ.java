@@ -1,3 +1,4 @@
+/*
 package com.example.springboot.kafka;
 
 import cn.hutool.db.sql.Order;
@@ -9,12 +10,14 @@ import org.aspectj.weaver.ast.Or;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
+*/
 /**
  * @progrm:TestSpringBoot
  * @Description:
  * @Author: leichengxu
  * @Date:2020-07-22 15:05
- */
+ *//*
+
 @Component
 public class KafkaConsumerLGQ {
 
@@ -37,3 +40,4 @@ public class KafkaConsumerLGQ {
   }
 
 }
+*/

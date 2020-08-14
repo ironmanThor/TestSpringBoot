@@ -28,8 +28,9 @@ spring:
     password: ${REDIS_PASSWORD:}
 dapeng:
   teaching:
-    host: ${TEACHING_REQUEST_URL:http://kong.kube.lan}
-    course-api: ${COURSE_API:${dapeng.teaching.host}/course-api}
-    user-api: ${USER_API:${dapeng.teaching.host}/user-service}
-
+    host: ${TEACHING_REQUEST_URL:http://api.c6931e4ccfe9c4db9b6f2d0e812b1f18b.cn-beijing.alicontainer.com}
+    cms-api: ${CMS_API:${dapeng.teaching.host}/cms-service}
+    job-api: ${JOB_API:${dapeng.teaching.host}/home-service}
+  operation:
+    requestUrl: ${OPERATION_REQUEST_URL:http://api.cd0755d8e9df9425a8d1653d7ac3a863d.cn-beijing.alicontainer.com}
 

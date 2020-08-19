@@ -25,3 +25,6 @@ public @interface ManyEnumExact {
 
     Class<? extends Enum> enumClass() default Enum.class;
 }
+/*
+传入多个个值String类型，并多个值拼接为一个Stirng，时的自定义判断传入值是否为枚举类中的
+*/

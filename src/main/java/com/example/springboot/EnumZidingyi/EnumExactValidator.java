@@ -7,7 +7,9 @@ import java.util.Objects;
 import java.util.Optional;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
-
+/*
+传入单个值String类型时的自定义判断传入值是否为枚举类中的
+*/
 public class EnumExactValidator implements ConstraintValidator<EnumExact, String> {
 
   private Class<? extends Enum> enClass = null;
@@ -25,7 +27,7 @@ public class EnumExactValidator implements ConstraintValidator<EnumExact, String
     }
 
     try {
-      //通过反射拿到具体的值values
+      //通过反射拿到具体枚举类的所有值values
       Method method = enClass.getDeclaredMethod("values");
       //获取到枚举中所有的值
       Enum[] elements = (Enum[]) method.invoke(null, null);

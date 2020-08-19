@@ -54,9 +54,9 @@ spring:
       write-dates-as-timestamps: true
   rabbitmq:
     host: localhost
-    port: 5672
-    username: admin
-    password: admin
+    port: 15672
+    username: newadmin
+    password: newpassword
 
 #mappersql查询地址  对应实体类
 mybatis:

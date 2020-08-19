@@ -8,7 +8,9 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 import javax.validation.Constraint;
 import javax.validation.Payload;
-
+/*
+传入集合类型时的自定义判断传入值是否为枚举类中的
+*/
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = EnumCollectionExactValidator.class)

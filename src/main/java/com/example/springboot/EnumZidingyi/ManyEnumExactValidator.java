@@ -7,7 +7,9 @@ import java.util.Objects;
 import java.util.Optional;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
-
+/*
+传入多个个值String类型，并多个值拼接为一个Stirng，时的自定义判断传入值是否为枚举类中的
+*/
 public class ManyEnumExactValidator implements ConstraintValidator<ManyEnumExact, String> {
 
     private Class<? extends Enum> enClass = null;

@@ -9,10 +9,11 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import org.springframework.util.CollectionUtils;
 
-/**
- */
-public class EnumCollectionExactValidator implements
-    ConstraintValidator<EnumTest, Collection> {
+/*
+传入集合类型时的自定义判断传入值是否为枚举类中的
+*/
+
+public class EnumCollectionExactValidator implements ConstraintValidator<EnumTest, Collection> {
 
     private Class<? extends Enum> enClass;
 

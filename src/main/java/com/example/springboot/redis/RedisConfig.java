@@ -1,8 +1,10 @@
 package com.example.springboot.redis;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.jsontype.impl.LaissezFaireSubTypeValidator;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.Cache;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
@@ -36,8 +38,11 @@ public class RedisConfig extends CachingConfigurerSupport {
 
     ObjectMapper objectMapper = new ObjectMapper();
     objectMapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
-    objectMapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
+    //过期方法 以activateDefaultTyping代替
+    //objectMapper.enableDefaultTyping(ObjectMapper.DefaultTyping.NON_FINAL);
 
+    objectMapper.activateDefaultTyping(LaissezFaireSubTypeValidator.instance ,
+        ObjectMapper.DefaultTyping.NON_FINAL, JsonTypeInfo.As.PROPERTY);
     jackson2JsonRedisSerializer.setObjectMapper(objectMapper);
 
     // 设置value的序列化规则和 key的序列化规则

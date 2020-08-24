@@ -23,10 +23,10 @@ public class defaultExchangeConsumerOne {
     Channel channel = rabbitMqConnectionUtil.getChannel("默认交换机消费者一号信道");
 
     // 声明队列 (队列名, 是否持久化, 是否排他(是否独一队列，同一个Connection(用单例模式实现)，那么这两个消费者也是可以共享这个排他队列的), 是否自动删除, 队列属性);
-    channel.queueDeclare(QUEUE_NAME,false,false,false,null);
+    channel.queueDeclare(QUEUE_NAME,false,false,true,null);
 
     //能者多劳模式，但是必须手动返回确认信息
-    channel.basicQos(1);
+    //channel.basicQos(1);
 
     DefaultConsumer consumer = new DefaultConsumer(channel){
       @SneakyThrows

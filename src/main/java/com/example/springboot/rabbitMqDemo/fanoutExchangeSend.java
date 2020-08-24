@@ -12,7 +12,7 @@ import java.util.concurrent.TimeoutException;
  * @Author: leichengxu
  * @Date:2020-08-18 14:06
  */
-public class funoutExchangeSend {
+public class fanoutExchangeSend {
   public static final String EXCHANGE="exchange.demo.two";
   public static final String QUEUE_NAME="queue.demo.two";
   public static final String ROUTING_KEY="key.demo.two";
@@ -26,7 +26,7 @@ public class funoutExchangeSend {
 
     //发布消息 (交换机名, Routing key,找对应队列 ,队列无消费者, 消息属性（MessageProperties.PERSISTENT_TEXT_PLAIN 消息持久化）, 消息体)
     channel.basicPublish(EXCHANGE,ROUTING_KEY,false,false,null ,MESSAGE.getBytes());
-    System.out.println("[funoutExchangeSend]:"+MESSAGE+"已发送！");
+    System.out.println("[fanoutExchangeSend]:"+MESSAGE+"已发送！");
 
     channel.close();
   }

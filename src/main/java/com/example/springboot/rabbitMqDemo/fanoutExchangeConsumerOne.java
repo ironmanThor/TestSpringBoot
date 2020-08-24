@@ -16,7 +16,7 @@ import java.util.concurrent.TimeoutException;
  * @Author: leichengxu
  * @Date:2020-08-18 14:18
  */
-public class funoutExchangeConsumerOne {
+public class fanoutExchangeConsumerOne {
   public static final String EXCHANGE="exchange.demo.two";
   public static final String QUEUE_NAME="queue.demo.two";
   public static final String ROUTING_KEY="key.demo.two";

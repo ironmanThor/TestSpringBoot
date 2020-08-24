@@ -15,7 +15,7 @@ import javax.xml.crypto.Data;
  * @Author: leichengxu
  * @Date:2020-08-18 14:31
  */
-public class funoutExchangeConsumerTwo {
+public class fanoutExchangeConsumerTwo {
   public static final String EXCHANGE="exchange.demo.two";
   public static final String QUEUE_NAME="queue.demo.two.two";
   public static final String ROUTING_KEY="key.demo.two";

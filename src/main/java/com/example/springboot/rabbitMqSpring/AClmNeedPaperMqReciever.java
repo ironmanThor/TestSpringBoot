@@ -17,7 +17,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Slf4j
 @EnableScheduling
-public class ClmNeedPaperMqReciever {
+public class AClmNeedPaperMqReciever {
   //1. @RabbitListener(queues = "myQueue") // 不能自动创建队列
   //2. 自动创建队列 @RabbitListener(queuesToDeclare = @Queue("myQueue"))
   //3. 自动创建, Exchange和Queue绑定

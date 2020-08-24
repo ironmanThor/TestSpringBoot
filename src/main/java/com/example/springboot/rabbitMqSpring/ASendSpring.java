@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @Author: leichengxu
  * @Date:2020-08-17 16:36
  */
-public class SendSpring {
+public class ASendSpring {
 
   // spring boot 为我们提供的包装类
   @Autowired

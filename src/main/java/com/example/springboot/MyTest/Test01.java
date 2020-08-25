@@ -1,4 +1,4 @@
-package com.example.springboot.rabbitMqSpring;
+package com.example.springboot.MyTest;
 
 import java.util.concurrent.TimeUnit;
 

@@ -1,4 +1,4 @@
-package com.example.springboot.rabbitMqSpring;
+package com.example.springboot.MyTest;
 
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.AMQP.BasicProperties;

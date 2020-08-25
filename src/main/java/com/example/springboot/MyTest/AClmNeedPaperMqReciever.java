@@ -1,4 +1,4 @@
-package com.example.springboot.rabbitMqSpring;
+package com.example.springboot.MyTest;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.Exchange;

@@ -1,6 +1,5 @@
-package com.example.springboot.rabbitMqSpring;
+package com.example.springboot.MyTest;
 
-import org.apache.commons.collections4.FunctorException;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.DirectExchange;

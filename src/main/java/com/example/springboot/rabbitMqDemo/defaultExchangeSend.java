@@ -19,7 +19,7 @@ public class defaultExchangeSend {
   public static void main(String[] args) throws IOException, TimeoutException {
     Channel channel = rabbitMqConnectionUtil.getChannel("默认交换机生产者的信道");
 
-    // 声明队列 (队列名, 是否持久化, 是否排他(是否独一队列，同一个Connection(用单例模式实现)，那么这两个消费者也是可以共享这个排他队列的), 是否自动删除, 队列属性);
+    // 声明队列 (队列名, 是否持久化, 是否排他(是否独一队列), 是否自动删除, 队列属性);
     channel.queueDeclare(QUEUE_NAME,false,false,true,null);
 
     //发布消息 (交换机名, Routing key（如果不显示声明交换机,那此处为默认为队列名）,找对应队列 ,队列无消费者, 消息属性, 消息体)

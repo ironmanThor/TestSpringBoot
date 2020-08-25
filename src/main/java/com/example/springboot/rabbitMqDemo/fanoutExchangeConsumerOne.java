@@ -6,8 +6,6 @@ import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.DefaultConsumer;
 import com.rabbitmq.client.Envelope;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.concurrent.TimeoutException;
 
 /**
@@ -25,18 +23,13 @@ public class fanoutExchangeConsumerOne {
 
   public static void main(String[] args) throws IOException, TimeoutException {
     Channel channel = rabbitMqConnectionUtil.getChannel("扇形交换机消费者一号的信道");
-    //要进行死信队列的声明:
-    channel.exchangeDeclare("dlx.exchange", "topic", true, false, null);
-    channel.queueDeclare("dlx.queue", true, false, false, null);
-    channel.queueBind("dlx.queue", "dlx.exchange", "#");
+
 
     // 声明交换机 (交换机名, 交换机类型, 是否持久化, 是否自动删除, 是否是内部交换机, 交换机属性);声明队列，主要为了防止消息接收者先运行此程序，队列还不存在时创建队列。
     channel.exchangeDeclare(EXCHANGE, BuiltinExchangeType.FANOUT,false,false,false,null);
 
-    Map<String, Object> agruments = new HashMap<String, Object>();
-    agruments.put("x-dead-letter-exchange", "dlx.exchange");
     // 声明队列 (队列名, 是否持久化, 是否排他(是否独一队列，同一个Connection(用单例模式实现)，那么这两个消费者也是可以共享这个排他队列的), 是否自动删除, 队列属性);
-    channel.queueDeclare(QUEUE_NAME,false,false,false,agruments);
+    channel.queueDeclare(QUEUE_NAME,false,false,false,null);
 
     // 将队列Binding到交换机上 (队列名, 交换机名, Binding key(Routing key), 绑定属性);
     channel.queueBind(QUEUE_NAME,EXCHANGE,ROUTING_KEY,null);

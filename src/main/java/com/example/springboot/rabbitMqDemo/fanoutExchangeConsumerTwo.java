@@ -2,6 +2,7 @@ package com.example.springboot.rabbitMqDemo;
 
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.BasicProperties;
+import com.rabbitmq.client.BuiltinExchangeType;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.DefaultConsumer;
 import com.rabbitmq.client.Envelope;
@@ -23,6 +24,7 @@ public class fanoutExchangeConsumerTwo {
 
   public static void main(String[] args) throws IOException, TimeoutException {
     Channel channel = rabbitMqConnectionUtil.getChannel("扇形交换机消费者二号的信道");
+    channel.exchangeDeclare(EXCHANGE, BuiltinExchangeType.FANOUT,false,false,false,null);
     channel.queueDeclare(QUEUE_NAME,false,false,false,null);
     channel.queueBind(QUEUE_NAME,EXCHANGE,ROUTING_KEY,null);
     DefaultConsumer consumer =new DefaultConsumer(channel){

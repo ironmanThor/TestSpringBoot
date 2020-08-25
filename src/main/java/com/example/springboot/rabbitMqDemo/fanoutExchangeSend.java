@@ -2,7 +2,6 @@ package com.example.springboot.rabbitMqDemo;
 
 import com.rabbitmq.client.BuiltinExchangeType;
 import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.MessageProperties;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 

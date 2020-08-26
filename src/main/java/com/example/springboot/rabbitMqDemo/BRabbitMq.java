@@ -33,7 +33,7 @@ public class BRabbitMq {
     channel.queueDeclare(QUEUE_NAME,false,false,true,map);
     channel.queueBind(QUEUE_NAME,EXCHANGE,ROUTING_KEY,null);
 
-    for (int i =0;i<10;i++){
+    for (int i =1;i<11;i++){
 
       AMQP.BasicProperties.Builder builder = new Builder();
 
@@ -41,7 +41,7 @@ public class BRabbitMq {
 
       BasicProperties build = builder.build();
       String message = null;
-      if (i<5){
+      if (i<6){
         message = "测试消息到达"+i;
         channel.basicPublish(EXCHANGE,ROUTING_KEY,true,false,build,message.getBytes());
       }else {

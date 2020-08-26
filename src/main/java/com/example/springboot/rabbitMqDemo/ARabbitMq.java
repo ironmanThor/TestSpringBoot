@@ -41,9 +41,9 @@ public class ARabbitMq {
     channel.queueDeclare(QUEUE_NAME,false,false,true,map);
     channel.queueBind(QUEUE_NAME,EXCHANGE,ROUTING_KEY,null);
 
-    for (int i =0;i<10;i++){
+    for (int i =1;i<11;i++){
       String message = null;
-      if (i<5){
+      if (i<6){
         message = "测试优先级"+i;
       }else {
         message = "首先测试优先级"+i;

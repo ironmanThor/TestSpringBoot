@@ -36,6 +36,7 @@ public class BRabbitMqConsumer {
       @Override
       public void handleDelivery(String consumerTag, Envelope envelope, BasicProperties properties, byte[] body) throws IOException {
         String s = new String(body);
+        System.out.println(s);
         channel.basicAck(envelope.getDeliveryTag(),false);
       }
     };

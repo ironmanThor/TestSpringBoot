@@ -16,20 +16,23 @@ public class defaultExchangeSend {
   public static final String ROUTING_KEY="key.demo.first";
   private static final String MESSAGE="测试默认交换机DEMO.first";
 
-  public static void main(String[] args) throws IOException, TimeoutException {
+  public static void main(String[] args) throws IOException, TimeoutException, InterruptedException {
     Channel channel = rabbitMqConnectionUtil.getChannel("默认交换机生产者的信道");
 
     // 声明队列 (队列名, 是否持久化, 是否排他(是否独一队列), 是否自动删除, 队列属性);
-    channel.queueDeclare(QUEUE_NAME,false,false,true,null);
+    channel.queueDeclare(QUEUE_NAME,false,false,false,null);
 
     //发布消息 (交换机名, Routing key（如果不显示声明交换机,那此处为默认为队列名）,找对应队列 ,队列无消费者, 消息属性, 消息体)
     channel.basicPublish("",QUEUE_NAME,false,false,null,MESSAGE.getBytes());
     System.out.println("[defaultExchangeSend]:"+MESSAGE+"已发送！");
-
+    //channel.confirmSelect();
     /*for (int i=0;i<50;i++){
       String message=MESSAGE+(i+1);
       channel.basicPublish("",QUEUE_NAME,false,false,null,message.getBytes());
-      System.out.println("[defaultExchangeSend]:"+message+"已发送！");
+      //if (channel.waitForConfirms()){
+        System.out.println("[defaultExchangeSend]:"+message+"已发送！");
+      //}
+
     }*/
 
     //关闭信道

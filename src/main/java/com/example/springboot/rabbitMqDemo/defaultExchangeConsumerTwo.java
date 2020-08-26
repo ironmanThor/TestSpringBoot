@@ -21,7 +21,7 @@ public class defaultExchangeConsumerTwo {
 
   public static void main(String[] args) throws IOException, TimeoutException {
     Channel channel = rabbitMqConnectionUtil.getChannel("默认交换机消费者二号信道");
-    channel.queueDeclare(QUEUE_NAME,false,false,true,null);
+    channel.queueDeclare(QUEUE_NAME,false,false,false,null);
     //channel.basicQos(1);
     DefaultConsumer consumer = new DefaultConsumer(channel){
       @SneakyThrows

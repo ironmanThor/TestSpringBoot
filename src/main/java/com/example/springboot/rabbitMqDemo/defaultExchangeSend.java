@@ -34,7 +34,7 @@ public class defaultExchangeSend {
       //}
 
     }*/
-
+    //channel.waitForConfirmsOrDie();
     //关闭信道
     channel.close();
 

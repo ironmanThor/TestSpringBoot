@@ -32,7 +32,7 @@ public class ARabbitMqConsumerOne {
           //System.out.println(s+properties.getHeaders().get("name"));
           channel.basicAck(envelope.getDeliveryTag(),false);
         }else {
-          channel.basicNack(envelope.getDeliveryTag(),true,true);
+          channel.basicNack(envelope.getDeliveryTag(),false,false);
         }
       }
     };

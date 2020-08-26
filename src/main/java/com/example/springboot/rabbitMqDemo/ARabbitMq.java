@@ -32,7 +32,7 @@ public class ARabbitMq {
     channel.exchangeDeclare("dlx.exchange", "topic", true, false, null);
     channel.queueDeclare("dlx.queue", true, false, false, null);
     channel.queueBind("dlx.queue", "dlx.exchange", "dlx.dead");
-    channel.exchangeDeclare(EXCHANGE, BuiltinExchangeType.TOPIC,true,false,null);
+    channel.exchangeDeclare(EXCHANGE, BuiltinExchangeType.TOPIC,false,false,null);
     Map<String,Object> map = new HashMap<>();
     map.put("x-max-priority",10);
     map.put("x-expires", 20 * 1000);

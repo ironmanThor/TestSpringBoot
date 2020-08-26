@@ -33,10 +33,7 @@ public class rabbitMqConnectionUtil {
     factory.setUsername("newadmin");
     //密码
     factory.setPassword("newpassword");
-    //网络异常自动连接恢复
-    factory.setAutomaticRecoveryEnabled(true);
-    //每10秒尝试自动重连
-    factory.setNetworkRecoveryInterval(10000);
+
     return factory;
   }
 

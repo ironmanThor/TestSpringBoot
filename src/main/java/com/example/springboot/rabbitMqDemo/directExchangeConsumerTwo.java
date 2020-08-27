@@ -16,7 +16,7 @@ import java.util.concurrent.TimeoutException;
 public class directExchangeConsumerTwo {
   public static final String EXCHANGE="exchange.demo.there";
   public static final String QUEUE_NAME="queue.demo.there.e";
-  public static final String ROUTING_KEY="key.demo.there.e";
+  public static final String ROUTING_KEY="key.demo.there";
   private static final String MESSAGE="测试直连形交换机DEMO.there";
 
   public static void main(String[] args) throws IOException, TimeoutException {

@@ -19,7 +19,7 @@ import javax.xml.crypto.Data;
 public class fanoutExchangeConsumerTwo {
   public static final String EXCHANGE="exchange.demo.two";
   public static final String QUEUE_NAME="queue.demo.two.two";
-  public static final String ROUTING_KEY="key.demo.two";
+  public static final String ROUTING_KEY="key.demo.twogdg";
   private static final String MESSAGE="测试扇形交换机DEMO.two";
 
   public static void main(String[] args) throws IOException, TimeoutException {

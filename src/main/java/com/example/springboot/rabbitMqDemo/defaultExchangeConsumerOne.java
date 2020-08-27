@@ -26,7 +26,7 @@ public class defaultExchangeConsumerOne {
     channel.queueDeclare(QUEUE_NAME,false,false,false,null);
 
     //能者多劳模式，但是必须手动返回确认信息
-    //channel.basicQos(1);
+    channel.basicQos(1);
 
     DefaultConsumer consumer = new DefaultConsumer(channel){
       @SneakyThrows

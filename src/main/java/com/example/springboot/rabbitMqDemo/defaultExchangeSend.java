@@ -26,14 +26,14 @@ public class defaultExchangeSend {
     channel.basicPublish("",QUEUE_NAME,false,false,null,MESSAGE.getBytes());
     System.out.println("[defaultExchangeSend]:"+MESSAGE+"已发送！");
     //channel.confirmSelect();
-    /*for (int i=0;i<50;i++){
+    for (int i=0;i<50;i++){
       String message=MESSAGE+(i+1);
       channel.basicPublish("",QUEUE_NAME,false,false,null,message.getBytes());
       //if (channel.waitForConfirms()){
         System.out.println("[defaultExchangeSend]:"+message+"已发送！");
       //}
 
-    }*/
+    }
     //channel.waitForConfirmsOrDie();
     //关闭信道
     channel.close();

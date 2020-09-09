@@ -1,3 +1,4 @@
+/*
 package com.example.springboot.MyTest;
 
 
@@ -8,12 +9,14 @@ import org.springframework.amqp.core.Queue;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+*/
 /**
  * @progrm:TestSpringBoot
  * @Description:
  * @Author: leichengxu
  * @Date:2020-08-24 14:41
- */
+ *//*
+
 @Configuration
 public class SpringBootRabbitMqConsumer {
 
@@ -34,3 +37,4 @@ public class SpringBootRabbitMqConsumer {
     return BindingBuilder.bind(TestDirectQueue()).to(TestDirectExchange()).with("TestDirectRouting");
   }
 }
+*/
